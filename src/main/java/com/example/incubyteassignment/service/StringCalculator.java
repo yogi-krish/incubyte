@@ -9,7 +9,13 @@ public class StringCalculator {
         }
         else if(numbers.contains(",")) {
             String[] numbersArray = numbers.split(",");
-            return Integer.parseInt(numbersArray[0])+Integer.parseInt(numbersArray[1]);
+
+            int sum = 0;
+            for(String num : numbersArray) {
+                sum += Integer.parseInt(num);
+            }
+
+            return sum;
         }
         else
             return Integer.parseInt(numbers);

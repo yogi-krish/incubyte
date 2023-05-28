@@ -21,4 +21,9 @@ public class StringCalculatorTest {
     public void testTwoCharacters() {
         assertEquals(3, StringCalculator.add("1,2"));
     }
+
+    @Test
+    public void testMultipleCharacter() {
+        assertEquals(15, StringCalculator.add("1,2,3,4,5"));
+    }
 }
