@@ -26,4 +26,9 @@ public class StringCalculatorTest {
     public void testMultipleCharacter() {
         assertEquals(15, StringCalculator.add("1,2,3,4,5"));
     }
+
+    @Test
+    public void testNewLineDelimiter() {
+        assertEquals(10, StringCalculator.add("1/n2,3/n4"));
+    }
 }
