@@ -36,4 +36,15 @@ public class StringCalculatorTest {
     public void testdifferentDelimiters() {
         assertEquals(3, StringCalculator.add("//;\n1;2"));
     }
+
+    @Test
+    public void testformultipleNegatives() {
+        try {
+            StringCalculator.add("-1,-2,3");
+
+        }
+        catch(RuntimeException e) {
+            assertEquals("negatives not allowed -1 -2", e.getMessage());
+        }
+    }
 }

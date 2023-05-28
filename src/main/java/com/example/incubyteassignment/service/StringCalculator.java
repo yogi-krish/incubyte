@@ -1,5 +1,8 @@
 package com.example.incubyteassignment.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
 
     public static int add(String numbers) {
@@ -29,9 +32,25 @@ public class StringCalculator {
         String[] numbersArray = numbers.split(delimiter);
 
         int sum = 0;
+        List<Integer> negatives = new ArrayList<>();
+
         for(String num : numbersArray) {
-            sum += to_Int(num);
+            int numValue = to_Int(num);
+            sum += numValue;
+            if(numValue < 0)
+                negatives.add(numValue);
+        }
+
+        if(negatives.size() > 0) {
+            throw new RuntimeException(message(negatives));
         }
         return sum;
+    }
+
+    public static String message(List<Integer> negatives) {
+        String str1="negatives not allowed ";
+        String str2=negatives.toString().replace("[", "").replace("]", "").replace(",", "");
+
+        return str1+str2;
     }
 }
